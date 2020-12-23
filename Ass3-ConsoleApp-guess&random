@@ -1,0 +1,85 @@
+//Ass3App.cs
+
+
+using Ass3Support;
+using System;
+
+
+namespace AdvOOP
+{
+    class Ass3App
+    {
+        static void Main(string[] input)
+        {
+            int minNumber = Int32.Parse(input[0]);
+            int maxNumber = Int32.Parse(input[1]);
+            if (maxNumber < minNumber)
+            {
+                Console.WriteLine("The first number must be lower than the second number");
+            }
+            else
+            {
+                Ass3Game game = new Ass3Game(minNumber, maxNumber);
+
+                do
+                {
+                    if (game.MakeGuess())
+                    {
+                        Console.WriteLine(game.Check());
+                    }
+                    else
+                        continue;
+                } while (game.Check() != "\t--> You win!");
+
+                Console.WriteLine("\n----End of Game----");
+            }
+        }
+    }
+}
+
+//Ass3Game.cs
+
+using System;
+
+namespace Ass3Support
+{
+    public class Ass3Game
+    {
+        int min, max, secret, guess;
+        Random r = new Random();
+
+        public Ass3Game(int min, int max)
+        {
+            this.min = min;
+            this.max = max;
+            secret = r.Next(min, max + 1);
+        }
+
+        public bool MakeGuess()
+        {
+            Console.Write("Enter an integer between " + min + " and " + max + " to guess: ");
+            int userInput = Int32.Parse(Console.ReadLine());
+            if (userInput >= min && userInput <= max)
+            {
+                guess = userInput;
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("\t--> You must enter a number between " + min + " and " + max + "!");
+                return false;
+            }
+        }
+
+        public String Check()
+        {
+            if (guess > secret)
+                return "\t--> Make it lower...";
+            else if (guess < secret)
+                return "\t--> Make it higher...";
+            else
+                return "\t--> You win!";
+
+        }
+    }
+}
