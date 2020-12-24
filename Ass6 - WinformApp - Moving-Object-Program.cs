@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ass5_vs
+namespace Ass6
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Ass5_vs
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Welcome());
+            Application.Run(new Form1());
         }
     }
 }
