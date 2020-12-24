@@ -1,0 +1,18 @@
+﻿College of Engineering:
+	-EE
+	-ME
+	-CS
+	-IT
+	-IE
+College of Business:
+	-BA
+	-ACCT
+	-MKT
+	-FIN
+	-ECO
+College of Social Science:
+	-PSY
+	-POL
+	-SOC
+	-GEO
+	-HIS
